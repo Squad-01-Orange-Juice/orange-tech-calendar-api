@@ -35,8 +35,9 @@ public class EventoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemEventos>> listar(@PageableDefault(sort = {"data"})Pageable pageable){
+    public ResponseEntity<Page<DadosListagemEventos>> listar(@PageableDefault(sort = {"dataInicio"})Pageable pageable){
         var page = eventoRepository.findAllByAtivoTrue(pageable).map(DadosListagemEventos::new);
+        System.out.println(page);
         return ResponseEntity.ok(page);
     }
 

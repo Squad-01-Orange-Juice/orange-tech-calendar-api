@@ -1,5 +1,6 @@
 package com.tech.calendar.api.DTO;
 
+import com.tech.calendar.api.domain.evento.Modalidade;
 import com.tech.calendar.api.domain.evento.Tipo;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
@@ -10,13 +11,24 @@ import java.time.LocalDateTime;
 public record CadastrarEventoDTO(
         @NotBlank
         String nome,
+        @NotBlank
+        String descricao,
+        @NotBlank
+        String local,
+        @NotBlank
+        String link,
         @NotNull
         @Future
-        LocalDateTime data,
+        LocalDateTime dataInicio,
+        @NotNull
+        @Future
+        LocalDateTime dataFinal,
         boolean online,
         boolean gratuito,
         double preco,
         @NotNull
-        Tipo tipo
+        Tipo tipo,
+        @NotNull
+        Modalidade modalidade
 ) {
 }

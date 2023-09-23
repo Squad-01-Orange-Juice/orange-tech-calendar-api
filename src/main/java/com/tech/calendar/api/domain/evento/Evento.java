@@ -24,8 +24,15 @@ public class Evento {
     private Long id;
 
     private String nome;
-    private LocalDateTime data;
-    private boolean online;
+    private String descricao;
+    private String local;
+    private String link;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataFinal;
+
+    @Enumerated
+    private Modalidade modalidade;
+
     private boolean gratuito;
     private double preco;
     private boolean ativo;
@@ -39,8 +46,12 @@ public class Evento {
     public Evento(CadastrarEventoDTO dados){
         this.ativo = true;
         this.nome = dados.nome();
-        this.data = dados.data();
-        this.online = dados.online();
+        this.descricao = dados.descricao();
+        this.local = dados.local();
+        this.link = dados.link();
+        this.dataInicio = dados.dataInicio();
+        this.dataFinal = dados.dataFinal();
+        this.modalidade = dados.modalidade();
         this.gratuito = dados.gratuito();
         if(dados.preco() != 0) this.preco = dados.preco();
         else this.preco = 0;

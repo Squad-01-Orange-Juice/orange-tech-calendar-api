@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,12 +30,7 @@ public class Usuario implements UserDetails {
     private String password;
     private UserRole userRole;
 
-    @ManyToMany
-    @JoinTable(
-            name = "inscricao",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "evento_id")
-    )
+    @OneToMany(mappedBy = "inscritos")
     private List<Evento> eventosInscritos = new ArrayList<>();
 
     public Usuario(String login, String nome, String password, UserRole userRole){
@@ -84,4 +77,5 @@ public class Usuario implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

@@ -40,8 +40,14 @@ public class Evento {
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
 
-    @ManyToMany(mappedBy = "eventosInscritos")
-    private List<Usuario> usuariosInscritos = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "inscricao",
+            joinColumns = @JoinColumn(name = "evento_id"),
+            inverseJoinColumns = @JoinColumn(name = "usuario_id")
+    )
+    private List<Usuario> inscritos = new ArrayList<>();
 
     public Evento(CadastrarEventoDTO dados){
         this.ativo = true;
@@ -63,7 +69,8 @@ public class Evento {
     }
 
     public void adicionarInscrito(Usuario usuario){
-        this.usuariosInscritos.add(usuario);
+        this.inscritos.add(usuario);
         usuario.getEventosInscritos().add(this);
+
     }
 }

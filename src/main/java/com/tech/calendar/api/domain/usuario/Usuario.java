@@ -32,6 +32,14 @@ public class Usuario implements UserDetails {
     private String password;
     private UserRole userRole;
 
+    @ManyToMany
+    @JoinTable(
+            name = "inscricao",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "evento_id")
+    )
+    private List<Evento> eventosInscritos = new ArrayList<>();
+
     public Usuario(String login, String nome, String password, UserRole userRole){
         this.login = login;
         this.nome = nome;

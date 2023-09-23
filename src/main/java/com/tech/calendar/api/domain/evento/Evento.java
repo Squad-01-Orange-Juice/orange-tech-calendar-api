@@ -1,6 +1,7 @@
 package com.tech.calendar.api.domain.evento;
 
 import com.tech.calendar.api.DTO.CadastrarEventoDTO;
+import com.tech.calendar.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -8,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,6 +33,9 @@ public class Evento {
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
 
+    @ManyToMany(mappedBy = "eventosInscritos")
+    private List<Usuario> usuariosInscritos = new ArrayList<>();
+
     public Evento(CadastrarEventoDTO dados){
         this.ativo = true;
         this.nome = dados.nome();
@@ -45,4 +51,8 @@ public class Evento {
         this.ativo = false;
     }
 
+    public void adicionarInscrito(Usuario usuario){
+        this.usuariosInscritos.add(usuario);
+        usuario.getEventosInscritos().add(this);
+    }
 }

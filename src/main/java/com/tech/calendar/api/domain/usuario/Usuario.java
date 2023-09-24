@@ -1,7 +1,7 @@
 package com.tech.calendar.api.domain.usuario;
 
 import com.tech.calendar.api.DTO.RegistrarUsuarioDTO;
-import com.tech.calendar.api.evento.domain.Evento;
+import com.tech.calendar.api.domain.evento.Evento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

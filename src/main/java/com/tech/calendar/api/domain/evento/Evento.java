@@ -1,4 +1,4 @@
-package com.tech.calendar.api.evento.domain;
+package com.tech.calendar.api.domain.evento;
 
 import com.tech.calendar.api.DTO.CadastrarEventoDTO;
 import com.tech.calendar.api.domain.usuario.Usuario;

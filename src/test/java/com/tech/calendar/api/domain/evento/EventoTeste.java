@@ -1,4 +1,4 @@
-package com.tech.calendar.api.evento.domain;
+package com.tech.calendar.api.domain.evento;
 
 
 import com.tech.calendar.api.domain.usuario.Usuario;
@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 
 public class EventoTeste {
-
 
     @Test
     void deveRetornarFalseQuandoEventoEstaInativo(){

@@ -1,17 +1,10 @@
-package com.tech.calendar.api.evento.repository;
+package com.tech.calendar.api.domain.evento;
 
 import com.tech.calendar.api.DTO.CadastrarEventoDTO;
 import com.tech.calendar.api.DTO.RegistrarUsuarioDTO;
 import com.tech.calendar.api.domain.usuario.UserRole;
 import com.tech.calendar.api.domain.usuario.Usuario;
 import com.tech.calendar.api.domain.usuario.UsuarioRepository;
-import com.tech.calendar.api.evento.domain.Evento;
-import com.tech.calendar.api.evento.domain.EventoRepository;
-import com.tech.calendar.api.evento.domain.Modalidade;
-import com.tech.calendar.api.evento.domain.Tipo;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -24,7 +17,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

@@ -1,4 +1,4 @@
-package com.tech.calendar.api.evento.domain;
+package com.tech.calendar.api.domain.evento;
 
 public enum Tipo {
     evento,

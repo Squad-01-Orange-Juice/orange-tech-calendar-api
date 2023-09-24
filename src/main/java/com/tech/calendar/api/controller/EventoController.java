@@ -45,7 +45,7 @@ public class EventoController {
     public ResponseEntity excluir(@PathVariable Long id){
         var evento = eventoRepository.getReferenceById(id);
         evento.excluir();
-
+        eventoRepository.save(evento);
         return ResponseEntity.ok("Evento: " + evento.getNome() + " excluído");
     }
 

@@ -28,6 +28,8 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/login").permitAll()
                         .requestMatchers("/auth/registrar").permitAll()
+                        .requestMatchers("/auth/esqueceu-senha").permitAll()
+                        .requestMatchers("/auth/resetar-senha/{token}").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

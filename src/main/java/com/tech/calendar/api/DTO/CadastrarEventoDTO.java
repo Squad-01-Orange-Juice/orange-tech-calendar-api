@@ -23,7 +23,6 @@ public record CadastrarEventoDTO(
         @NotNull
         @Future
         LocalDateTime dataFinal,
-        boolean online,
         boolean gratuito,
         double preco,
         @NotNull

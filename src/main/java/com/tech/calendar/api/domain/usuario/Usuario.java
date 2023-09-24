@@ -25,10 +25,12 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String login;
     private String nome;
     private String password;
     private UserRole userRole;
+    private String tokenDeResetDeSenha;
 
     @OneToMany(mappedBy = "inscritos")
     private List<Evento> eventosInscritos = new ArrayList<>();
@@ -78,4 +80,11 @@ public class Usuario implements UserDetails {
         return true;
     }
 
+    public void setTokenDeResetDeSenha(String token){
+        this.tokenDeResetDeSenha = token;
+    }
+
+    public void setPassword(String novaSenha){
+        this.password = novaSenha;
+    }
 }

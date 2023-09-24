@@ -1,5 +1,6 @@
 package com.tech.calendar.api.controller;
 
+import com.tech.calendar.api.DTO.EventosInscritosDTO;
 import com.tech.calendar.api.DTO.IDUsuarioDTO;
 import com.tech.calendar.api.domain.evento.Evento;
 import com.tech.calendar.api.domain.evento.EventoRepository;
@@ -17,10 +18,10 @@ public class UsuarioController {
     private EventoRepository eventoRepository;
 
     @GetMapping("/eventosInscritos")
-    public ResponseEntity<Page<Evento>> listarEventos(@RequestBody IDUsuarioDTO idUsuario, Pageable pageable){
+    public ResponseEntity<Page<EventosInscritosDTO>> listarEventos(@RequestBody IDUsuarioDTO idUsuario, Pageable pageable){
 
-        var page = eventoRepository.findByInscritos_Id(idUsuario.id(), pageable);
+        var page = eventoRepository.findByInscritos_Id(idUsuario.id(), pageable).map(EventosInscritosDTO::new);
 
-        return ResponseEntity.ok((Page<Evento>) page);
+        return ResponseEntity.ok((Page<EventosInscritosDTO>) page);
     }
 }

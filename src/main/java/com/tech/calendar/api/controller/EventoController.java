@@ -2,7 +2,7 @@ package com.tech.calendar.api.controller;
 
 import com.tech.calendar.api.DTO.CadastrarEventoDTO;
 import com.tech.calendar.api.DTO.DadosListagemEventos;
-import com.tech.calendar.api.DTO.IDUsuarioDTO;
+import com.tech.calendar.api.DTO.IDDTO;
 import com.tech.calendar.api.domain.evento.Evento;
 import com.tech.calendar.api.domain.evento.EventoRepository;
 import com.tech.calendar.api.domain.usuario.UsuarioRepository;
@@ -50,7 +50,7 @@ public class EventoController {
     }
 
     @PostMapping("/{idEvento}/inscricao")
-    public ResponseEntity adicionarInscrito(@RequestBody IDUsuarioDTO idUsuario, @PathVariable Long idEvento){
+    public ResponseEntity adicionarInscrito(@RequestBody IDDTO idUsuario, @PathVariable Long idEvento){
         var evento = eventoRepository.getReferenceById(idEvento);
         var usuario = usuarioRepository.getReferenceById(idUsuario.id());
 

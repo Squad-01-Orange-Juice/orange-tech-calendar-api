@@ -10,9 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Getter
@@ -32,8 +30,8 @@ public class Usuario implements UserDetails {
     private UserRole userRole;
     private String tokenDeResetDeSenha;
 
-    @OneToMany(mappedBy = "inscritos")
-    private List<Evento> eventosInscritos = new ArrayList<>();
+    @ManyToMany(mappedBy = "inscritos")
+    private Set<Evento> eventosInscritos = new HashSet<>();
 
     public Usuario(String login, String nome, String password, UserRole userRole){
         this.login = login;

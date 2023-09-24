@@ -3,7 +3,7 @@ package com.tech.calendar.api.controller;
 import com.tech.calendar.api.DTO.*;
 import com.tech.calendar.api.domain.usuario.Usuario;
 import com.tech.calendar.api.domain.usuario.UsuarioRepository;
-import com.tech.calendar.api.infra.security.EmailSenderService;
+import com.tech.calendar.api.infra.email.EmailSenderService;
 import com.tech.calendar.api.infra.security.ResetarSenhaService;
 import com.tech.calendar.api.infra.security.TokenService;
 import jakarta.validation.Valid;

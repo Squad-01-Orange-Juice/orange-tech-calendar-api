@@ -1,4 +1,4 @@
-package com.tech.calendar.api.infra.security;
+package com.tech.calendar.api.infra.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -18,6 +18,16 @@ public class EmailSenderService {
         message.setTo(toEmail);
         message.setText("Você solicitou um lembrete da sua senha. http://localhost:8080/auth/resetar-senha/" + token);
         message.setSubject("Recuperação de senha");
+
+        mailSender.send(message);
+    }
+
+    public void enviarEmail(String login, String lembreteDeEvento, String mensagem) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("squad1.orangej@gmail.com");
+        message.setTo(login);
+        message.setText(mensagem);
+        message.setSubject(lembreteDeEvento);
 
         mailSender.send(message);
     }

@@ -1,4 +1,4 @@
-package com.tech.calendar.api.domain.evento;
+package com.tech.calendar.api.evento.domain;
 
 import com.tech.calendar.api.DTO.CadastrarEventoDTO;
 import com.tech.calendar.api.domain.usuario.Usuario;
@@ -9,9 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

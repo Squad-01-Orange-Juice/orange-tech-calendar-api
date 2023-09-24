@@ -1,7 +1,7 @@
 package com.tech.calendar.api.DTO;
 
-import com.tech.calendar.api.domain.evento.Evento;
-import com.tech.calendar.api.domain.evento.Tipo;
+import com.tech.calendar.api.evento.domain.Evento;
+import com.tech.calendar.api.evento.domain.Tipo;
 
 import java.time.LocalDateTime;
 

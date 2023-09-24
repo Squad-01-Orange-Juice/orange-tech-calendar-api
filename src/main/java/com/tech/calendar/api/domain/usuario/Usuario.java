@@ -1,6 +1,7 @@
 package com.tech.calendar.api.domain.usuario;
 
-import com.tech.calendar.api.domain.evento.Evento;
+import com.tech.calendar.api.DTO.RegistrarUsuarioDTO;
+import com.tech.calendar.api.evento.domain.Evento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -38,6 +39,13 @@ public class Usuario implements UserDetails {
         this.nome = nome;
         this.password = password;
         this.userRole = userRole;
+    }
+
+    public Usuario(RegistrarUsuarioDTO dados) {
+        this.login = dados.login();
+        this.nome = dados.nome();
+        this.password = dados.password();
+        this.userRole = dados.userRole();
     }
 
     @Override

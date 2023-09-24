@@ -2,7 +2,7 @@ package com.tech.calendar.api.controller;
 
 import com.tech.calendar.api.DTO.EventosInscritosDTO;
 import com.tech.calendar.api.DTO.IDDTO;
-import com.tech.calendar.api.domain.evento.EventoRepository;
+import com.tech.calendar.api.evento.domain.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

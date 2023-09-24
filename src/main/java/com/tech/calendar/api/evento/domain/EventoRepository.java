@@ -1,4 +1,4 @@
-package com.tech.calendar.api.domain.evento;
+package com.tech.calendar.api.evento.domain;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

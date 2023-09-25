@@ -49,7 +49,8 @@ public class AutenticacaoController {
         var usuarioESenha = new UsernamePasswordAuthenticationToken(dados.login(), dados.password());
         var auth = this.authenticationManager.authenticate(usuarioESenha);
         var token = this.tokenService.gerarToken((Usuario) auth.getPrincipal());
-        return ResponseEntity.ok(new RespostaLoginDTO(token));
+        Long id = this.usuarioRepository.findUserIdByEmail(dados.login());
+        return ResponseEntity.ok(new RespostaLoginDTO(token, id));
     }
 
     @PostMapping("/esqueceu-senha")

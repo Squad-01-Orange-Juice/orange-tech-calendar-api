@@ -82,3 +82,15 @@
     }
     ```
     <br><br>
+  <hr>
+
+### Eventos
+- Listar eventos cadastrados pelo usuário: GET -
+  https://orange-tech-calendar-api-production.up.railway.app/usuario/eventosInscritos
+  O corpo da requisição deve ser enviado com um json no formato:<br>
+    ```
+    {
+      "id": id
+    }
+    ```
+  <br><br>
